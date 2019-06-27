@@ -1,4 +1,4 @@
-module uart_receiver(RXD, clk, reset, rx_data, rx_busy);
+module receiver(RXD, clk, reset, rx_data, rx_busy);
 	input	RXD;
 	input	clk;
 	input	reset;

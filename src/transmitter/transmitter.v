@@ -1,10 +1,10 @@
-module transmitter(TXD, tx_data, clk, reset, td_busy, send);
-	input [7:0]	tx_data;
+module transmitter(TXD, tx_data, clk, reset, tx_busy, send);
+	input [0:7]	tx_data;
 	input 		send;
 	input		clk;
 	input		reset;
 	output		TXD;
-	output 		td_busy;
+	output 		tx_busy;
 
 	parameter waiting = 1'b0;
 	parameter writing = 1'b1;
@@ -36,6 +36,7 @@ module transmitter(TXD, tx_data, clk, reset, td_busy, send);
 					if(count<8)
 						begin
 							txd_reg = tx_data[count];
+							count++;
 						end
 					else
 						begin
@@ -45,7 +46,7 @@ module transmitter(TXD, tx_data, clk, reset, td_busy, send);
 				end
 		end
 
-	assign td_busy = status;
+	assign tx_busy = status;
 	assign TXD = txd_reg;
 	
 endmodule
