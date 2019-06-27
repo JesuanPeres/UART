@@ -10,15 +10,19 @@ module transmitter(TXD, tx_data, clk, reset, td_busy, send);
 	parameter writing = 1'b1;
 	
 	reg txd_reg = 1'b1;
+	reg status = waiting;
 
-
-	integer count = 0, status = waiting;
+	integer count = 0;
 
 	always @(posedge clk)
 		begin
-			if(status == waiting) 
+			if(reset)
 				begin
-					$display("waiting");
+					status = waiting;
+				end
+			else if(status == waiting) 
+				begin
+					//$display("waiting");
 					if(send)
 						begin
 							status = writing;
@@ -28,7 +32,7 @@ module transmitter(TXD, tx_data, clk, reset, td_busy, send);
 				end
 			else 
 				begin
-					$display("writing");
+					//$display("writing");
 					if(count<8)
 						begin
 							txd_reg = tx_data[count];
