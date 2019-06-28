@@ -19,6 +19,7 @@ module transmitter(TXD, tx_data, clk, reset, tx_busy, send);
 			if(reset)
 				begin
 					status = waiting;
+					txd_reg = 1'b1;
 				end
 			else if(status == waiting) 
 				begin
