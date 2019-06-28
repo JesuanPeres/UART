@@ -2,13 +2,13 @@ module receiver(RXD, clk, reset, rx_data, rx_busy);
 	input	RXD;
 	input	clk;
 	input	reset;
-	output	[7:0] rx_data;
+	output	[0:7] rx_data;
 	output	rx_busy;
 
 	parameter waiting = 1'b0;
 	parameter reading = 1'b1;
 
-	reg [7:0]	buffer = 8'b00000000;
+	reg [0:7]	buffer = 8'b00000000;
 	reg status = waiting;
 
 	integer count = 0;
@@ -17,6 +17,7 @@ module receiver(RXD, clk, reset, rx_data, rx_busy);
 		begin
 			if(reset)
 				begin
+					buffer = 8'b00000000;
 					status = waiting;
 				end
 			else if(status == waiting)

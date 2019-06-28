@@ -7,7 +7,7 @@ module receiver_tb();
 	receiver r1(
 		.RXD(RXD),
 		.clk(clk),
-		.reset(1'b0)
+		.reset(reset)
 	);
 
 
@@ -32,6 +32,7 @@ module receiver_tb();
 
 		//bit de fim
 		#20 RXD = 1;
+
 		#200
 		$finish;
 		
