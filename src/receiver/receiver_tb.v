@@ -15,10 +15,12 @@ module receiver_tb();
 		$dumpfile("receiver_tb.vcd");
 		$dumpvars(0,receiver_tb);
 		clk = 0;
-		//#20 send = 1;
-		#20 RXD = 1;
-		#20 RXD = 1;
-		#20	RXD = 1;
+		RXD = 1;
+		
+		//bit de inicio
+		#20 RXD = 0;
+
+		//mensagem
 		#20 RXD = 0;
 		#20 RXD = 1;
 		#20 RXD = 0;
@@ -27,12 +29,10 @@ module receiver_tb();
 		#20 RXD = 1;
 		#20 RXD = 0;
 		#20	RXD = 1;
-		#20 RXD = 0;
+
+		//bit de fim
 		#20 RXD = 1;
-		#20 RXD = 1;
-		#20 RXD = 1;
-		#20 RXD = 1;
-		#20 RXD = 1;
+		#200
 		$finish;
 		
 	end

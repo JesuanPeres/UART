@@ -8,7 +8,7 @@ module receiver(RXD, clk, reset, rx_data, rx_busy);
 	parameter waiting = 1'b0;
 	parameter reading = 1'b1;
 
-	reg [7:0]	buffer;
+	reg [7:0]	buffer = 8'b00000000;
 	reg status = waiting;
 
 	integer count = 0;
