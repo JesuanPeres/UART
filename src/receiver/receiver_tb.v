@@ -17,14 +17,22 @@ module receiver_tb();
 		clk = 0;
 		//#20 send = 1;
 		#20 RXD = 1;
-		#20 RXD = 0;
+		#20 RXD = 1;
 		#20	RXD = 1;
 		#20 RXD = 0;
 		#20 RXD = 1;
 		#20 RXD = 0;
 		#20 RXD = 1;
+		#20 RXD = 0;
 		#20 RXD = 1;
-		#200	
+		#20 RXD = 0;
+		#20	RXD = 1;
+		#20 RXD = 0;
+		#20 RXD = 1;
+		#20 RXD = 1;
+		#20 RXD = 1;
+		#20 RXD = 1;
+		#20 RXD = 1;
 		$finish;
 		
 	end
